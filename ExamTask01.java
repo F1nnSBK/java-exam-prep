@@ -1,9 +1,20 @@
 public class ExamTask01 {
 
     public static void main(String[] args) {
-        System.out.println("Hello world");
-        Person finn = new Person(36348.43);
+        Street street = new Street(20);
+        street.sortByFee();
 
-        System.out.println("Finn hat " + finn.budget + "€");
+        Flat cheapestFlat = null;
+        for (House h : street.houses) {
+            for (Flat f : h.flats) {
+                if (cheapestFlat == null) {
+                    cheapestFlat = f;
+                } else if (f.fee < cheapestFlat.fee) {
+                    cheapestFlat = f;
+                }
+            }
+        }
+
+        System.out.println(cheapestFlat.fee);
     }
 }
