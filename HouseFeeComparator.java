@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 public class HouseFeeComparator implements Comparator<House> {
 
     public int compare(House h1, House h2) {

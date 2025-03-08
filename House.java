@@ -19,7 +19,7 @@ public class House implements Rentable, Comparable<House> {
 
         int flatFee = 500;
         for (int i = 0; i < numberOfFlats; i++) {
-            thiss.flats.add(new Flat(flatFee));
+            this.flats.add(new Flat(flatFee));
             flatFee += 100;
         }
     }
@@ -37,7 +37,7 @@ public class House implements Rentable, Comparable<House> {
         if (!isRentable()) {
             throw new NotRentableException();
         } else if (this.fee > person.budget) {
-            throw new TooLowBudgetException();
+            throw new TooLowBudgetException(this.fee - person.budget);
         } else {
             this.renter = person;
         }

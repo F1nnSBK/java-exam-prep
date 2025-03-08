@@ -21,7 +21,7 @@ public class Flat implements Rentable {
         if (!isRentable() || !isFree()) {
             throw new NotRentableException();
         } else if (fee > person.budget) {
-            throw new TooLowBudgetException();
+            throw new TooLowBudgetException(fee - person.budget);
         } else {
             this.renter = person;
         }

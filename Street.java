@@ -1,10 +1,11 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Street {
 
     public final ArrayList<House> houses;
 
-    punlic Street(int numberOfHouses) {
+    public Street(int numberOfHouses) {
         this.houses = new ArrayList<>();
 
         for (int i = 0; i < numberOfHouses; i++) {
@@ -30,7 +31,7 @@ public class Street {
                 } else if (e instanceof NotRentableException n) {
                     System.out.println(
                         "Die Hausnummer " +
-                        h.number +
+                        h.getNumber() +
                         "kann nicht gemietet werden"
                     );
                 }
