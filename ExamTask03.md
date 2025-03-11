@@ -1,8 +1,10 @@
 Aufgabe 3
+
 Was ist der Unterschied zwischen einer abstrakten Klasse mit ausschließlich abstrakten Methoden und einem
 Interface.
 
 Lösung:
+
 Eine erbende Klasse kann nur von einer einzigen abstrakten Klasse erben, aber von vielen Interfaces.
 Abstrakte Klassen können Konstrukturen haben und Interfaces nicht.
 
