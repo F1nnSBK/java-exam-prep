@@ -1,4 +1,4 @@
-package generics_01;
+package generics_02;
 
 public class WineBottle extends Bottle {
 

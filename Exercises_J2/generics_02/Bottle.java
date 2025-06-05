@@ -1,4 +1,4 @@
-package generics_01;
+package generics_02;
 
 abstract class Bottle {
 
