@@ -1,8 +1,9 @@
 package maps_02;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map.Entry;
 
 
 public record BookCollection(HashMap<Author, List<Book>> collection) {
@@ -21,11 +22,11 @@ public record BookCollection(HashMap<Author, List<Book>> collection) {
 
     public Book getBookByTitle(String title) {
         for (List<Book> books : collection.values()) {
-        for (Book b : books) {
-            if (b.title().equals(title)) {
-            return b;
+            for (Book b : books) {
+                if (b.title().equals(title)) {
+                return b;
+                }
             }
-        }
         }
         return null;
     }
@@ -33,7 +34,7 @@ public record BookCollection(HashMap<Author, List<Book>> collection) {
     public Author getMostDiligentAuthor() {
         Author mostDiligentAuthor = null;
         int mostBooks = 0;
-        for(java.util.Map.Entry<Author, List<Book>> entry : collection.entrySet()) {
+        for(Entry<Author, List<Book>> entry : collection.entrySet()) {
             if (entry.getValue().size() > mostBooks) {
                 mostDiligentAuthor = entry.getKey();
                 mostBooks = entry.getValue().size();
