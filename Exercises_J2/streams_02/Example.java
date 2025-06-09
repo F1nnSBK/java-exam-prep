@@ -4,6 +4,6 @@ public class Example {
     public static void main(String[] args) {
         FootballerQueries queries = new FootballerQueries(DataProvider.getFootballers());
 
-        System.out.println(queries.getTotalOfAllGoalsByMidfielders());
+        System.out.println(queries.getAverageNumberOfPointsFromAllBundesligaFootballClubs());
     }
 }
