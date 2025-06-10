@@ -1,0 +1,54 @@
+Übungsaufgabe: Filmstudio-Analyse
+
+Du arbeitest als Datenanalyst für ein großes Filmstudio. Deine Aufgabe ist es, verschiedene Statistiken und Listen basierend auf den Filmdaten zu erstellen.
+
+
+Aufgabenstellung:
+
+Implementiere die folgenden Methoden in der MovieAnalytics-Klasse (oder einer separaten Klasse, die eine Instanz von MovieAnalytics erhält):
+
+Aufgabe 1: Blockbuster-Jahre (Gruppierung & Filterung)
+
+Die Marketingabteilung möchte wissen, welche Jahre besonders viele Blockbuster-Filme produziert haben. Ein Film gilt als Blockbuster, wenn sein globales Einspielergebnis (Summe aller Regionen in boxOfficeByRegion) mindestens 500 Millionen US-Dollar beträgt und er eine Bewertung von mindestens 8.0 hat.
+
+Methode: public Map<Integer, Long> getBlockbusterCountByYear()
+
+Gibt eine Map zurück, deren Schlüssel das Produktionsjahr des Films ist (year), und deren Wert die Anzahl der Blockbuster-Filme in diesem Jahr ist.
+Filme mit leeren oder null boxOfficeByRegion-Maps sollen nicht berücksichtigt werden.
+Aufgabe 2: Der meistgesuchte Schauspieler (Maximalwert & Aggregation)
+
+Die Casting-Abteilung sucht Schauspieler, die vielseitig sind und in vielen Genres auftreten. Sie möchte den Schauspieler finden, der in den meisten verschiedenen Genres aufgetreten ist.
+
+Methode: public Optional<Actor> getActorWithMostDiverseGenres()
+
+Gibt ein Optional<Actor> zurück, das den Schauspieler mit der höchsten Anzahl an einzigartigen Genres enthält.
+Falls mehrere Schauspieler die gleiche maximale Anzahl an Genres haben, gib einfach einen beliebigen von ihnen zurück.
+Schauspieler ohne Genres sollen ignoriert werden (oder als 0 Genres gezählt werden, wenn du sie als "nicht vielseitig" betrachten willst; ignoriert ist hier einfacher).
+Aufgabe 3: Durchschnittliches Einspielergebnis pro Schauspieler-Genre (Verschachtelung & Durchschnitt)
+
+Der Finanzchef möchte das durchschnittliche Einspielergebnis der Filme wissen, in denen Schauspieler aus einem bestimmten Genre mitgespielt haben.
+
+Methode: public OptionalDouble getAverageBoxOfficeForActorGenre(String targetGenre)
+
+Gibt den durchschnittlichen globalen Einspielergebnis (boxOfficeByRegion Summe) von Filmen zurück, in denen mindestens ein Schauspieler mitgespielt hat, der das targetGenre in seiner genres-Liste hat.
+Filme ohne Box Office Daten oder mit null boxOfficeByRegion sollen ignoriert werden.
+Das Ergebnis soll ein OptionalDouble sein. Wenn keine solchen Filme gefunden werden, soll das Optional leer sein.
+Aufgabe 4: Filme ohne bestimmte Schauspieler (Negativfilter & Namen in Kleinbuchstaben)
+
+Die Rechtsabteilung möchte eine Liste aller Filmtitel (in Kleinbuchstaben) haben, die keine Schauspieler aus einer vorgegebenen "Risikoliste" enthalten.
+
+Methode: public List<String> getMoviesWithoutRiskyActors(List<String> riskyActors)
+
+Gibt eine List<String> der Filmtitel zurück, die keine Schauspieler enthalten, deren Name in der riskyActors-Liste ist.
+Die Filmtitel sollen in Kleinbuchstaben zurückgegeben werden.
+Die Liste soll keine doppelten Filmtitel enthalten.
+Filme mit leerem oder null cast sollen nicht als "riskant" gelten (d.h. sie werden in die Liste aufgenommen, es sei denn, ein "riskanter" Schauspieler hat tatsächlich mitgespielt).
+Aufgabe 5: Schauspieler nach Altersbereich (Optional & Gruppierung)
+
+Das Talentmanagement möchte Schauspieler nach ihrem aktuellen Alter in bestimmte Altersbereiche gruppieren.
+
+Methode: public Map<String, List<Actor>> getActorsByAgeGroup()
+
+Gibt eine Map zurück, deren Schlüssel der Altersbereich ("Jünger als 30", "30-49 Jahre", "50-69 Jahre", "70 Jahre und älter") ist und deren Wert eine List<Actor> ist.
+Schauspieler ohne birthDate sollen ignoriert werden.
+Die birthDate ist LocalDate. Das aktuelle Datum soll für die Altersberechnung verwendet werden.
